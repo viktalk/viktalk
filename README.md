@@ -1,16 +1,29 @@
-## Hi there 👋
 
-<!--
-**viktalk/viktalk** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# 👋 Welcome to VikTalk
 
-Here are some ideas to get you started:
+## 💬 VikTalk – Connect, Chat & Make Friends
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+VikTalk is a social chatting platform designed to help people connect, communicate and make new friends.
+
+### 🌟 About VikTalk
+VikTalk aims to provide a simple, friendly and safe chatting experience.
+
+### 🚀 Planned Features
+- User Registration & Login
+- Mobile Number OTP Verification
+- 18+ Age Verification
+- Personal User Profiles
+- Profile Photos and Avatars
+- Private Chatting
+- Password Recovery
+- Privacy and Security
+
+### 🎨 Design
+- Clean White Background
+- Light Coffee Brown & Cream Theme
+- Simple and User-Friendly Interface
+
+### ❤️ Our Vision
+To make communication simple, safe and enjoyable for everyone.
+
+**VikTalk – Connect with People, Share Happiness.**
