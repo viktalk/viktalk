@@ -3,136 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VikTalk - Connect, Chat & Make Friends</title>
+<title>VikTalk - Connect & Chat</title>
 
 <style>
-* { 
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
     background: #fffaf3;
-    color: #4b3025;
+    color: #493426;
 }
 
 header {
-    background: #ffffff;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    background: white;
+    padding: 18px;
+    text-align: center;
+    border-bottom: 2px solid #ead8c5;
 }
 
 .logo {
-    font-size: 27px;
+    font-size: 30px;
     font-weight: bold;
-    color: #795139;
+    color: #70452c;
 }
 
 .logo span {
-    color: #b58b68;
-}
-
-.hero {
-    text-align: center;
-    padding: 65px 20px;
-    background: #f7eee4;
-}
-
-.hero h1 {
-    font-size: 38px;
-    margin-bottom: 15px;
-}
-
-.hero p {
-    font-size: 17px;
-    line-height: 1.7;
-    color: #765d4d;
+    color: #b8895e;
 }
 
 .container {
     max-width: 420px;
-    margin: 35px auto;
-    padding: 30px;
+    margin: 30px auto;
+    padding: 25px;
     background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    border-radius: 16px;
+    box-shadow: 0 4px 18px #00000012;
 }
 
-.container h2 {
+h1, h2 {
     text-align: center;
-    margin-bottom: 22px;
+    margin-bottom: 15px;
+    color: #70452c;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #8b7665;
+}
+
+label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
 }
 
 input {
     width: 100%;
     padding: 13px;
-    margin-bottom: 15px;
-    border: 1px solid #dfd2c5;
+    border: 1px solid #d8c2ad;
     border-radius: 8px;
     font-size: 15px;
 }
 
 button {
     width: 100%;
-    padding: 14px;
+    padding: 13px;
+    margin-top: 18px;
     border: none;
     border-radius: 8px;
-    background: #795139;
+    background: #70452c;
     color: white;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
 }
 
 button:hover {
-    background: #5d3b29;
+    background: #57351f;
 }
 
-.register {
+.links {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 18px;
+    line-height: 2;
 }
 
-.register a {
-    color: #795139;
-    font-weight: bold;
+a {
+    color: #98663e;
     text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.notice {
+    margin-top: 18px;
+    padding: 12px;
+    background: #fff4e5;
+    border-radius: 8px;
+    font-size: 13px;
+    text-align: center;
+    color: #75563e;
 }
 
 .features {
-    padding: 40px 20px;
-    text-align: center;
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
 }
 
-.features h2 {
-    margin-bottom: 25px;
-}
-
-.feature-box {
+.feature {
     background: white;
-    padding: 22px;
-    margin: 12px auto;
-    max-width: 350px;
+    padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+    text-align: center;
+    box-shadow: 0 3px 12px #0000000d;
 }
 
 footer {
     text-align: center;
     padding: 25px;
-    background: #795139;
-    color: white;
-    line-height: 1.8;
-}
-
-@media(max-width: 500px) {
-    .hero h1 {
-        font-size: 29px;
-    }
+    color: #8b7665;
+    font-size: 13px;
 }
 </style>
 </head>
@@ -140,75 +143,68 @@ footer {
 <body>
 
 <header>
-    <div class="logo">V+ <span>VikTalk</span></div>
+    <div class="logo"><span>V+</span> VikTalk</div>
 </header>
 
-<section class="hero">
-    <h1>Welcome to VikTalk 👋</h1>
-    <p>
-        Connect, Chat & Make Friends.<br>
-        A simple, friendly and safe social chatting platform.
-    </p>
-</section>
+<div class="container" id="loginBox">
 
-<div class="container">
-    <h2>Login to VikTalk</h2>
+    <h1>Welcome to VikTalk</h1>
+    <p class="subtitle">Connect, Chat & Make Friends</p>
 
-    <form onsubmit="loginDemo(event)">
-        <input type="text"
-        placeholder="Username or Mobile Number" required>
+    <form onsubmit="login(event)">
+        <label>Username or Mobile Number</label>
+        <input type="text" id="loginUser" placeholder="Enter username or mobile" required>
 
-        <input type="password"
-        placeholder="Password" required>
+        <label>Password</label>
+        <input type="password" id="loginPassword" placeholder="Enter password" required>
 
         <button type="submit">Login</button>
     </form>
 
-    <div class="register">
-        <p>New to VikTalk?</p>
-        <a href="#register">Create New Account</a>
+    <div class="links">
+        <a onclick="forgotPassword()">Forgot Password?</a>
+        <br>
+        Don't have an account?
+        <a onclick="showRegister()">Create New Account</a>
     </div>
 
-    <p style="text-align:center; margin-top:15px;">
-        <a href="#" style="color:#795139;">
-        Forgot Password?
-        </a>
-    </p>
+    <div class="notice">
+        18+ Safe and Private Community
+    </div>
 </div>
 
-<section class="features">
-    <h2>Why VikTalk?</h2>
+<div class="container hidden" id="registerBox">
 
-    <div class="feature-box">
-        💬
-        <h3>Private Chat</h3>
-        <p>Connect and communicate with people.</p>
+    <h2>Create Your Account</h2>
+    <p class="subtitle">Join the VikTalk Community</p>
+
+    <form onsubmit="register(event)">
+
+        <label>Full Name</label>
+        <input type="text" id="fullName" placeholder="Enter your full name" required>
+
+        <label>Mobile Number</label>
+        <input type="tel" id="mobile" maxlength="10"
+        pattern="[0-9]{10}" placeholder="Enter 10 digit mobile number" required>
+
+        <label>Date of Birth</label>
+        <input type="date" id="dob" required>
+
+        <label>Create Password</label>
+        <input type="password" id="newPassword" placeholder="Create password" required>
+
+        <label>Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+
+        <button type="submit">Create Account</button>
+
+    </form>
+
+    <div class="links">
+        Already have an account?
+        <a onclick="showLogin()">Login</a>
     </div>
 
-    <div class="feature-box">
-        🔒
-        <h3>Safe & Private</h3>
-        <p>Your privacy and security matter to us.</p>
-    </div>
-
-    <div class="feature-box">
-        👥
-        <h3>Make Friends</h3>
-        <p>Meet people and build new connections.</p>
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 VikTalk. All Rights Reserved.</p>
-    <p>Safe & Friendly Community | 18+ Only</p>
-</footer>
-
-<script>
-function loginDemo(event) {
-    event.preventDefault();
-    alert("Welcome to VikTalk! Login system will be connected soon.");
-}
-</script>
-
-</body>
-</html>
+    <div class="notice">
+        You must be 18 years or older to
+    
