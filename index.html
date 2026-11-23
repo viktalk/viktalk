@@ -207,4 +207,87 @@ footer {
 
     <div class="notice">
         You must be 18 years or older to
+ register.</div>
+</div>
+
+<script>
+function showRegister() {
+  document.getElementById("loginBox").classList.add("hidden");
+  document.getElementById("registerBox").classList.remove("hidden");
+}
+
+function showLogin() {
+  document.getElementById("registerBox").classList.add("hidden");
+  document.getElementById("loginBox").classList.remove("hidden");
+}
+
+function forgotPassword() {
+  alert("Password recovery by mobile OTP will be available soon.");
+}
+
+function login(event) {
+  event.preventDefault();
+
+  const username = document.getElementById("loginUser").value.trim();
+  const password = document.getElementById("loginPassword").value;
+
+  if (!username || !password) {
+    alert("Please enter username and password.");
+    return;
+  }
+
+  alert("Login system is not connected yet. Backend setup is required.");
+}
+
+function register(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("fullName").value.trim();
+  const mobile = document.getElementById("mobile").value.trim();
+  const dob = document.getElementById("dob").value;
+  const password = document.getElementById("newPassword").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  if (!name || !mobile || !dob || !password || !confirmPassword) {
+    alert("Please fill in all details.");
+    return;
+  }
+
+  if (!/^[0-9]{10}$/.test(mobile)) {
+    alert("Please enter a valid 10 digit mobile number.");
+    return;
+  }
+
+  const birthDate = new Date(dob);
+  const today = new Date();
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const month = today.getMonth() - birthDate.getMonth();
+
+  if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  if (age < 18) {
+    alert("You must be 18 years or older to register.");
+    return;
+  }
+
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters.");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match.");
+    return;
+  }
+
+  alert("Your details are valid. Account creation will work after backend and OTP setup.");
+}
+</script>
+
+</body>
+</html>
+
     
